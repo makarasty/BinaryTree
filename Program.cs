@@ -2,7 +2,6 @@
 
 class Program
 {
-	static string MyReadLine() => Console.ReadLine() ?? string.Empty;
 	static void Main(string[] args)
 	{
 		Console.Write("Розмір масиву чисел: ");
@@ -22,16 +21,6 @@ class Program
 		Console.WriteLine($"Значення {valueToFind} {(isFound ? "знайдено" : "не знайдено")} в бінарному дереві!");
 	}
 
-	static int[] GenerateRandomArray(int length)
-	{
-		Random random = new();
-		int[] randomArray = new int[length];
-
-		for (int i = 0; i < length; i++)
-		{
-			randomArray[i] = random.Next(1, 101);
-		}
-
-		return randomArray;
-	}
+	static string MyReadLine() => Console.ReadLine() ?? string.Empty;
+	static int[] GenerateRandomArray(int length) => Enumerable.Range(1, length).Select(i => new Random().Next(1, 101)).ToArray();
 }
